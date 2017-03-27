@@ -1,6 +1,6 @@
 
 /**
- * Use to indicate the result of the action. 
+ * Use to indicate the result of the action (i.e., Sucess, Fail, or Unknown). 
  */
 export enum ActionResult {
     /**
