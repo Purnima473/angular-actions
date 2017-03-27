@@ -1,0 +1,45 @@
+{
+  "name": "angular-actions",
+  "version": "1.0.0",
+  "description": "Angular-Actions is a framework to build amazing business logic. It is built using Typescript and compliments the Angular-Rules-Engine.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc -p ./src",
+    "start": "node dist/start",
+    "lint": "tslint \"src/**/*.ts\""
+  },
+  "private": false,
+  "dependencies": {
+  },
+  "devDependencies": {
+    "tslint": "4.5.1",
+    "typescript": "2.2.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/buildmotion/angular-actions.git"
+  },
+  "keywords": [
+    "angular",
+    "typescript",
+    "business logic",
+    "business actions",
+    "business rules",
+    "buildmotion",
+    "validation",
+    "javascript rules"
+  ],
+  "author": "Matt Vaughn",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/buildmotion/angular-actions/issues"
+  },
+  "homepage": "https://github.com/buildmotion/angular-actions#readme",
+  "maintainers": [
+    {
+      "name": "buildmotion",
+      "email": "matt.vaughn@buildmotion.com"
+    }
+  ]
+}
