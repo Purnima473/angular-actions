@@ -11,8 +11,10 @@
   },
   "private": false,
   "dependencies": {
+    "angular-rules-engine": "0.0.26"
   },
   "devDependencies": {
+    "angular-rules-engine": "0.0.26",
     "tslint": "4.5.1",
     "typescript": "2.2.1"
   },

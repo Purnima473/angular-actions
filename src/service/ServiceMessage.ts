@@ -3,7 +3,7 @@ import { MessageType } from './index';
 /**
  * Use this class to create a message for the current [ServiceContext].
  */
-export class ServiceMessage{
+export class ServiceMessage {
 
     Name: string;
     Message: string;
@@ -18,17 +18,16 @@ export class ServiceMessage{
      * @param messageType: Indicates the type of message.
      * @param source: Indicates the source of the message.
      * @param displayToUser: Indicates if the message is displayable.
-     */ 
+     */
     constructor(name: string, message?: string)
     constructor(name: string, message: string, messageType?: MessageType)
     constructor(name: string, message: string, messageType?: MessageType, source?: string)
-    constructor(name: string, message: string, messageType?: MessageType, source?: string, displayToUser?: boolean)
-    {
+    constructor(name: string, message: string, messageType?: MessageType, source?: string, displayToUser?: boolean) {
         this.Name = name;
         this.Message = message;
         this.MessageType = messageType;
         this.Source = source;
-        this.DisplayToUser = displayToUser;        
+        this.DisplayToUser = displayToUser;
     }
 
 

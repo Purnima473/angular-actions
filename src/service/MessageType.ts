@@ -2,7 +2,7 @@
 /**
  * Use to indicate the type for the [ServiceMessage].
  */
-export enum MessageType{
+export enum MessageType {
     /**
      * Use to indicate the message type is informational. 
      */
