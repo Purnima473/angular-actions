@@ -1,0 +1,1 @@
+{"version":3,"file":"IAction.js","sourceRoot":"","sources":["file:///b:/development/npmjs.com/angular-actions/src/action/IAction.ts"],"names":[],"mappings":"","sourcesContent":["\r\nexport interface IAction {\r\n\texecute();\r\n}\r\n"]}
