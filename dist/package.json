@@ -1,6 +1,6 @@
 {
   "name": "angular-actions",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Angular-Actions is a framework to build amazing business logic. It is built using Typescript and compliments the Angular-Rules-Engine.",
   "main": "index.js",
   "scripts": {
