@@ -1,34 +1,6 @@
-(function (global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('angular-rules-engine')) :
-	typeof define === 'function' && define.amd ? define(['exports', 'angular-rules-engine'], factory) :
-	(factory((global.angularActions = {}),global['angular-rules-engine']));
-}(this, (function (exports,angularRulesEngine) { 'use strict';
-
-/**
- * Use to indicate the result of the action (i.e., Sucess, Fail, or Unknown).
- */
-/**
- * Use to indicate the result of the action (i.e., Sucess, Fail, or Unknown).
- */
-
-/**
- * Use to indicate the result of the action (i.e., Sucess, Fail, or Unknown).
- */
-(function (ActionResult) {
-    /**
-     * Use to indicate that the action's result is success.
-     */
-    ActionResult[ActionResult["Success"] = 1] = "Success";
-    /**
-     * Use to indicate that the action's result is failure.
-     */
-    ActionResult[ActionResult["Fail"] = 2] = "Fail";
-    /**
-     * Use to indicate that the action's result is unknown.
-     */
-    ActionResult[ActionResult["Unknown"] = 3] = "Unknown";
-})(exports.ActionResult || (exports.ActionResult = {}));
-
+import { ValidationContext } from 'angular-rules-engine';
+import { ValidationContextState } from 'angular-rules-engine';
+import { ActionResult } from './ActionResult';
 /**
  * This is the framework Action class that provides the pipeline of pre/post
  * execution methods. This class implements the [Template Method] pattern.
@@ -49,11 +21,31 @@
  *		2. validateActionResult();
  *		3. finish();
  */
-var Action = (function () {
+var /**
+ * This is the framework Action class that provides the pipeline of pre/post
+ * execution methods. This class implements the [Template Method] pattern.
+ *
+ * The pre-execute functions that can be implemented are:
+ *		1. start();
+ *		2. audit();
+ *		3. preValidateAction();
+ *		4. evaluateRules();
+ *		5. postValidateAction();
+ *		6. preExecuteAction();
+ *
+ *If the status of action is good, the business logic will be executed using the:
+ *		1. processAction();
+ *
+ * The post-execution functions that can be implemented are:
+ *		1. postExecuteAction();
+ *		2. validateActionResult();
+ *		3. finish();
+ */
+Action = (function () {
     function Action() {
         this.allowExecution = true;
-        this._validationContext = new angularRulesEngine.ValidationContext();
-        this.actionResult = exports.ActionResult.Unknown;
+        this._validationContext = new ValidationContext();
+        this.actionResult = ActionResult.Unknown;
     }
     Object.defineProperty(Action.prototype, "validationContext", {
         get: function () {
@@ -88,7 +80,7 @@ var Action = (function () {
         }
         this.finishAction();
     };
-    
+    ;
     Action.prototype.startAction = function () {
         console.log('Starting action.');
         this.start();
@@ -188,11 +180,11 @@ var Action = (function () {
         var context = this.validateAction();
         if (context.isValid) {
             this.allowExecution = true;
-            this.validationContext.state = angularRulesEngine.ValidationContextState.Success;
+            this.validationContext.state = ValidationContextState.Success;
         }
         else {
             this.allowExecution = false;
-            this.validationContext.state = angularRulesEngine.ValidationContextState.Failure;
+            this.validationContext.state = ValidationContextState.Failure;
         }
     };
     /**
@@ -282,10 +274,25 @@ var Action = (function () {
     };
     return Action;
 }());
-
-exports.Action = Action;
-
-Object.defineProperty(exports, '__esModule', { value: true });
-
-})));
-//# sourceMappingURL=angular-actions.umd.js.map
+/**
+ * This is the framework Action class that provides the pipeline of pre/post
+ * execution methods. This class implements the [Template Method] pattern.
+ *
+ * The pre-execute functions that can be implemented are:
+ *		1. start();
+ *		2. audit();
+ *		3. preValidateAction();
+ *		4. evaluateRules();
+ *		5. postValidateAction();
+ *		6. preExecuteAction();
+ *
+ *If the status of action is good, the business logic will be executed using the:
+ *		1. processAction();
+ *
+ * The post-execution functions that can be implemented are:
+ *		1. postExecuteAction();
+ *		2. validateActionResult();
+ *		3. finish();
+ */
+export { Action };
+//# sourceMappingURL=Action.js.map
