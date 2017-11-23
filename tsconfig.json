@@ -25,6 +25,7 @@
 		"./src/index.ts"
 	],
 	"angularCompilerOptions": {
+		"skipTemplateCodegen": true,
 		"strictMetadataEmit": true,
 		"genDir": "aot-dist"
 	}

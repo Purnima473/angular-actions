@@ -2,6 +2,8 @@
 Angular-Actions is a framework to build amazing business logic. It is built using Typescript and compliments the [Angular-Rules-Engine](https://www.npmjs.com/package/angular-rules-engine) on [npmjs.com](https://www.npmjs.com/package/angular-rules-engine.
 ) or [GitHub](https://github.com/buildmotion/angular-rules-engine).
 
+        Note: v2.0.x requires Angular 5.x packages.
+
 ## Why Use Angular-Actions?
 Business logic is the heart of your application. It deserves as much attention if not more than the visible parts of the application. Many times, the architecture or design of the business layer will determine the success of the application. For most business or enterprise applications you will want to strive for the following: 
 

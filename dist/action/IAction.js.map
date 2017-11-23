@@ -1,1 +1,0 @@
-{"version":3,"file":"IAction.js","sourceRoot":"","sources":["../../src/action/IAction.ts"],"names":[],"mappings":"","sourcesContent":["\r\nexport interface IAction {\r\nexecute(): void;\r\n}\r\n"]}
