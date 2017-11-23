@@ -1,22 +1,29 @@
 {
   "name": "angular-actions",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "Angular-Actions is a framework to build amazing business logic. It is built using Typescript and compliments the Angular-Rules-Engine.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc -p ./src",
-    "start": "node dist/start",
+    "transpile": "ngc",
+    "package": "rollup -c",
+    "minify": "uglifyjs dist/bundles/angular-actions.umd.js --screw-ie8 --compress --mangle --comments --output dist/bundles/angular-actions.umd.min.js",
+    "build": "npm run transpile && npm run package && npm run minify",
     "lint": "tslint \"src/**/*.ts\""
   },
   "private": false,
   "dependencies": {
-    "angular-rules-engine": "0.0.26"
+    "typescript-dotnet-commonjs": "^4.8.0"
   },
   "devDependencies": {
-    "angular-rules-engine": "0.0.26",
+    "@angular/cli": "^1.5.0",
+    "@angular/compiler": "^5.0.1",
+    "@angular/compiler-cli": "^5.0.1",
+    "@angular/core": "^5.0.1",
+    "angular-rules-engine": "^2.1.1",
+    "rollup": "^0.50.0",
     "tslint": "4.5.1",
-    "typescript": "2.2.1"
+    "typescript": "^2.4.2",
+    "uglify-js": "^3.1.10"
   },
   "repository": {
     "type": "git",

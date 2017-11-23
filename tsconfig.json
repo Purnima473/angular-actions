@@ -1,36 +1,31 @@
 {
-	"compileOnSave": true,
 	"compilerOptions": {
-		"declaration": true,
+		"baseUrl": "",
+		"declaration": true, /* generate type definition files; */
 		"emitDecoratorMetadata": true,
 		"experimentalDecorators": true,
 		"inlineSources": true,
-		"mapRoot": "/",
-		"module": "commonjs",
+		"lib": [
+			"es2015",
+			"dom"
+		],
+		"module": "es2015",
 		"moduleResolution": "node",
-		"noEmitOnError": false,
-		"noImplicitAny": false,
+		"noImplicitAny": true, /* true to support Angular 4.0 */
 		"outDir": "dist",
+		"paths": {},
 		"rootDir": "src",
+		"skipLibCheck": true,
 		"sourceMap": true,
+		"strictNullChecks": true, /* support for Angular 4.1 */
+		"stripInternal": true,
 		"target": "es5"
 	},
-	"formatCodeOptions": {
-		"indentSize": 4,
-		"tabSize": 4,
-		"newLineCharacter": "\r\n",
-		"convertTabsToSpaces": true,
-		"insertSpaceAfterCommaDelimiter": true,
-		"insertSpaceAfterSemicolonInForStatements": true,
-		"insertSpaceBeforeAndAfterBinaryOperators": true,
-		"insertSpaceAfterKeywordsInControlFlowStatements": true,
-		"insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
-		"insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": false,
-		"placeOpenBraceOnNewLineForFunctions": false,
-		"placeOpenBraceOnNewLineForControlBlocks": false
-	},
-	"exclude": [
-		"node_modules",
-		"dist"
-	]
+	"files": [
+		"./src/index.ts"
+	],
+	"angularCompilerOptions": {
+		"strictMetadataEmit": true,
+		"genDir": "aot-dist"
+	}
 }

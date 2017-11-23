@@ -1,6 +1,34 @@
-import { ValidationContext } from 'angular-rules-engine';
-import { ValidationContextState } from 'angular-rules-engine';
-import { ActionResult } from './ActionResult';
+(function (global, factory) {
+	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('angular-rules-engine')) :
+	typeof define === 'function' && define.amd ? define(['exports', 'angular-rules-engine'], factory) :
+	(factory((global.angularActions = {}),global['angular-rules-engine']));
+}(this, (function (exports,angularRulesEngine) { 'use strict';
+
+/**
+ * Use to indicate the result of the action (i.e., Sucess, Fail, or Unknown).
+ */
+/**
+ * Use to indicate the result of the action (i.e., Sucess, Fail, or Unknown).
+ */
+
+/**
+ * Use to indicate the result of the action (i.e., Sucess, Fail, or Unknown).
+ */
+(function (ActionResult) {
+    /**
+     * Use to indicate that the action's result is success.
+     */
+    ActionResult[ActionResult["Success"] = 1] = "Success";
+    /**
+     * Use to indicate that the action's result is failure.
+     */
+    ActionResult[ActionResult["Fail"] = 2] = "Fail";
+    /**
+     * Use to indicate that the action's result is unknown.
+     */
+    ActionResult[ActionResult["Unknown"] = 3] = "Unknown";
+})(exports.ActionResult || (exports.ActionResult = {}));
+
 /**
  * This is the framework Action class that provides the pipeline of pre/post
  * execution methods. This class implements the [Template Method] pattern.
@@ -21,31 +49,11 @@ import { ActionResult } from './ActionResult';
  *		2. validateActionResult();
  *		3. finish();
  */
-var /**
- * This is the framework Action class that provides the pipeline of pre/post
- * execution methods. This class implements the [Template Method] pattern.
- *
- * The pre-execute functions that can be implemented are:
- *		1. start();
- *		2. audit();
- *		3. preValidateAction();
- *		4. evaluateRules();
- *		5. postValidateAction();
- *		6. preExecuteAction();
- *
- *If the status of action is good, the business logic will be executed using the:
- *		1. processAction();
- *
- * The post-execution functions that can be implemented are:
- *		1. postExecuteAction();
- *		2. validateActionResult();
- *		3. finish();
- */
-Action = (function () {
+var Action = (function () {
     function Action() {
         this.allowExecution = true;
-        this._validationContext = new ValidationContext();
-        this.actionResult = ActionResult.Unknown;
+        this._validationContext = new angularRulesEngine.ValidationContext();
+        this.actionResult = exports.ActionResult.Unknown;
     }
     Object.defineProperty(Action.prototype, "validationContext", {
         get: function () {
@@ -80,7 +88,7 @@ Action = (function () {
         }
         this.finishAction();
     };
-    ;
+    
     Action.prototype.startAction = function () {
         console.log('Starting action.');
         this.start();
@@ -180,11 +188,11 @@ Action = (function () {
         var context = this.validateAction();
         if (context.isValid) {
             this.allowExecution = true;
-            this.validationContext.state = ValidationContextState.Success;
+            this.validationContext.state = angularRulesEngine.ValidationContextState.Success;
         }
         else {
             this.allowExecution = false;
-            this.validationContext.state = ValidationContextState.Failure;
+            this.validationContext.state = angularRulesEngine.ValidationContextState.Failure;
         }
     };
     /**
@@ -274,25 +282,212 @@ Action = (function () {
     };
     return Action;
 }());
+
 /**
- * This is the framework Action class that provides the pipeline of pre/post
- * execution methods. This class implements the [Template Method] pattern.
- *
- * The pre-execute functions that can be implemented are:
- *		1. start();
- *		2. audit();
- *		3. preValidateAction();
- *		4. evaluateRules();
- *		5. postValidateAction();
- *		6. preExecuteAction();
- *
- *If the status of action is good, the business logic will be executed using the:
- *		1. processAction();
- *
- * The post-execution functions that can be implemented are:
- *		1. postExecuteAction();
- *		2. validateActionResult();
- *		3. finish();
+ * Use to indicate the type for the [ServiceMessage].
  */
-export { Action };
-//# sourceMappingURL=action.js.map
+/**
+ * Use to indicate the type for the [ServiceMessage].
+ */
+
+/**
+ * Use to indicate the type for the [ServiceMessage].
+ */
+(function (MessageType) {
+    /**
+     * Use to indicate the message type is informational.
+     */
+    MessageType[MessageType["Information"] = 1] = "Information";
+    /**
+     * Use to indicate the message type is warning.
+     */
+    MessageType[MessageType["Warning"] = 2] = "Warning";
+    /**
+     * Use to indicate the message type is error.
+     */
+    MessageType[MessageType["Error"] = 3] = "Error";
+})(exports.MessageType || (exports.MessageType = {}));
+
+/**
+ * Use this class to manage the context of a single service call. This
+ * class will contain a list of any service messages added during the processing
+ * of a service request.
+ */
+var ServiceContext = (function () {
+    function ServiceContext() {
+        /**
+             * A list of service messages added by the application during the processing of the
+             * specified service request.
+             */
+        this.Messages = new Array();
+        this.ErrorMessages = new Array();
+    }
+    /**
+     * Use this method to add a new message to the [ServiceContext].
+     */
+    /**
+         * Use this method to add a new message to the [ServiceContext].
+         */
+    ServiceContext.prototype.addMessage = /**
+         * Use this method to add a new message to the [ServiceContext].
+         */
+    function (message) {
+        this.Messages.push(message);
+    };
+    /**
+     * Use to determine if the current [ServiceContext] contains any messages with type of [Error].
+     */
+    /**
+         * Use to determine if the current [ServiceContext] contains any messages with type of [Error].
+         */
+    ServiceContext.prototype.hasErrors = /**
+         * Use to determine if the current [ServiceContext] contains any messages with type of [Error].
+         */
+    function () {
+        if (this.Messages && this.Messages.length > 0) {
+            this.ErrorMessages = this.Messages.filter(function (f) { return f.MessageType === exports.MessageType.Error; });
+            if (this.ErrorMessages.length > 0) {
+                return true;
+            }
+        }
+        return false;
+    };
+    /**
+     * Use to determine if the current [ServiceContext] does not contain any errors.
+     */
+    /**
+         * Use to determine if the current [ServiceContext] does not contain any errors.
+         */
+    ServiceContext.prototype.isGood = /**
+         * Use to determine if the current [ServiceContext] does not contain any errors.
+         */
+    function () {
+        if (this.Messages && this.Messages.length > 0) {
+            this.ErrorMessages = this.Messages.filter(function (f) { return f.MessageType === exports.MessageType.Error; });
+            if (this.ErrorMessages.length > 0) {
+                return false;
+            }
+        }
+        return true;
+    };
+    return ServiceContext;
+}());
+
+/**
+ * Use this class to create a message for the current [ServiceContext].
+ */
+var ServiceMessage = (function () {
+    function ServiceMessage(name, message, messageType, source, displayToUser) {
+        this.Name = name;
+        this.Message = message;
+        if (messageType) {
+            this.MessageType = messageType;
+        }
+        if (source) {
+            this.Source = source;
+        }
+        this.DisplayToUser = displayToUser;
+    }
+    /**
+     * Use this extension method to add the name of the message.
+     * @param name: The name of the service message.
+     */
+    /**
+         * Use this extension method to add the name of the message.
+         * @param name: The name of the service message.
+         */
+    ServiceMessage.prototype.WithName = /**
+         * Use this extension method to add the name of the message.
+         * @param name: The name of the service message.
+         */
+    function (name) {
+        this.Name = name;
+        return this;
+    };
+    /**
+     * Use this extension method to add the message text to the ServiceMessage item.
+     * @param message: The display text of the service message.
+     */
+    /**
+         * Use this extension method to add the message text to the ServiceMessage item.
+         * @param message: The display text of the service message.
+         */
+    ServiceMessage.prototype.WithMessage = /**
+         * Use this extension method to add the message text to the ServiceMessage item.
+         * @param message: The display text of the service message.
+         */
+    function (message) {
+        this.Message = message;
+        return this;
+    };
+    /**
+     * Use this extension method to set the [MessageType] of the ServiceMessage item.
+     * @param messageType: Use to indicate the message type.
+     */
+    /**
+         * Use this extension method to set the [MessageType] of the ServiceMessage item.
+         * @param messageType: Use to indicate the message type.
+         */
+    ServiceMessage.prototype.WithMessageType = /**
+         * Use this extension method to set the [MessageType] of the ServiceMessage item.
+         * @param messageType: Use to indicate the message type.
+         */
+    function (messageType) {
+        this.MessageType = messageType;
+        return this;
+    };
+    /**
+     * Use this extension method to set the [Source] of the ServiceMessage item.
+     * @param source: Use to indicate the source of the message.
+     */
+    /**
+         * Use this extension method to set the [Source] of the ServiceMessage item.
+         * @param source: Use to indicate the source of the message.
+         */
+    ServiceMessage.prototype.WithSource = /**
+         * Use this extension method to set the [Source] of the ServiceMessage item.
+         * @param source: Use to indicate the source of the message.
+         */
+    function (source) {
+        this.Source = source;
+        return this;
+    };
+    /**
+     * Use this extension method to set the [DisplayToUser] indicator of the ServiceMessage.
+     * @param displayToUser: A boolean value to indicate if the message can be displayed to the user.
+     */
+    /**
+         * Use this extension method to set the [DisplayToUser] indicator of the ServiceMessage.
+         * @param displayToUser: A boolean value to indicate if the message can be displayed to the user.
+         */
+    ServiceMessage.prototype.WithDisplayToUser = /**
+         * Use this extension method to set the [DisplayToUser] indicator of the ServiceMessage.
+         * @param displayToUser: A boolean value to indicate if the message can be displayed to the user.
+         */
+    function (displayToUser) {
+        this.DisplayToUser = displayToUser;
+        return this;
+    };
+    /**
+     * Use this method return a string representing the ServiceMessage.
+     */
+    /**
+         * Use this method return a string representing the ServiceMessage.
+         */
+    ServiceMessage.prototype.toString = /**
+         * Use this method return a string representing the ServiceMessage.
+         */
+    function () {
+        return "Name: " + this.Name + "; Message: " + this.Message + "; MessageType: " + this.MessageType.toString() + "; Source: " + this.Source + "; DisplayToUser: " + this.DisplayToUser;
+    };
+    return ServiceMessage;
+}());
+
+exports.Action = Action;
+exports.ServiceContext = ServiceContext;
+exports.ServiceMessage = ServiceMessage;
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+})));
+//# sourceMappingURL=angular-actions.umd.js.map

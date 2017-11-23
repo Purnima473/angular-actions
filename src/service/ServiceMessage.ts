@@ -1,4 +1,4 @@
-import { MessageType } from './index';
+import { MessageType } from './MessageType';
 
 /**
  * Use this class to create a message for the current [ServiceContext].
@@ -12,7 +12,7 @@ export class ServiceMessage {
     DisplayToUser: boolean;
 
     /**
-     * The constructor for the [ServiceMessage]. 
+     * The constructor for the [ServiceMessage].
      * @param name: The name of the message.
      * @param message: The display text of the message.
      * @param messageType: Indicates the type of message.
@@ -25,16 +25,14 @@ export class ServiceMessage {
     constructor(name: string, message: string, messageType?: MessageType, source?: string, displayToUser?: boolean) {
         this.Name = name;
         this.Message = message;
-        this.MessageType = messageType;
-        this.Source = source;
-        this.DisplayToUser = displayToUser;
+        if (messageType) {
+            this.MessageType = messageType as MessageType;
+        }
+        if (source) {
+            this.Source = source as string;
+        }
+        this.DisplayToUser = displayToUser as boolean;
     }
-
-
-    //constructor(name: string, message: string, messageType: MessageType, source?: string)
-    //constructor(name: string, message: string, messageType: MessageType, source: string, displayToUser: boolean = false) {
-
-    //}
 
     /**
      * Use this extension method to add the name of the message.

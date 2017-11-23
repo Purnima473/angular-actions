@@ -1,4 +1,4 @@
 
 export interface IAction {
-	execute();
+execute(): void;
 }

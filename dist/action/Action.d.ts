@@ -1,6 +1,6 @@
-import { ValidationContext } from 'angular-rules-engine/validation/index';
+import { ValidationContext } from 'angular-rules-engine';
 import { IAction } from './IAction';
-import { ActionResult } from './index';
+import { ActionResult } from './ActionResult';
 /**
  * This is the framework Action class that provides the pipeline of pre/post
  * execution methods. This class implements the [Template Method] pattern.
@@ -23,7 +23,7 @@ import { ActionResult } from './index';
  */
 export declare class Action implements IAction {
     allowExecution: boolean;
-    _validationContext: ValidationContext;
+    private _validationContext;
     actionResult: ActionResult;
     constructor();
     readonly validationContext: ValidationContext;

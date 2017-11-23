@@ -1,6 +1,6 @@
 {
   "name": "angular-actions",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "Angular-Actions is a framework to build amazing business logic. It is built using Typescript and compliments the Angular-Rules-Engine.",
   "main": "index.js",
   "scripts": {
@@ -10,12 +10,8 @@
     "lint": "tslint \"src/**/*.ts\""
   },
   "private": false,
-  "angular-rules-engine": "0.0.26",
-  "dependencies": {},
-  "devDependencies": {
-    "angular-rules-engine": "0.0.26",
-    "tslint": "4.5.1",
-    "typescript": "2.2.1"
+  "peerDependencies": {
+    "angular-rules-engine": "^2.0.10"
   },
   "repository": {
     "type": "git",

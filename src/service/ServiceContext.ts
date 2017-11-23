@@ -1,16 +1,16 @@
-import { ServiceMessage } from './index';
-import { MessageType } from './index';
+import { ServiceMessage } from './ServiceMessage';
+import { MessageType } from './MessageType';
 
 /**
- * Use this class to manage the context of a single service call. This 
+ * Use this class to manage the context of a single service call. This
  * class will contain a list of any service messages added during the processing
- * of a service request. 
+ * of a service request.
  */
 export class ServiceContext {
 
     /**
      * A list of service messages added by the application during the processing of the 
-     * specified service request. 
+     * specified service request.
      */
     Messages: Array<ServiceMessage> = new Array<ServiceMessage>();
     ErrorMessages: Array<ServiceMessage> = new Array<ServiceMessage>();

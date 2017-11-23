@@ -1,9 +1,13 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * Use to indicate the type for the [ServiceMessage].
  */
-var MessageType;
+/**
+ * Use to indicate the type for the [ServiceMessage].
+ */
+export var MessageType;
+/**
+ * Use to indicate the type for the [ServiceMessage].
+ */
 (function (MessageType) {
     /**
      * Use to indicate the message type is informational.
@@ -17,5 +21,5 @@ var MessageType;
      * Use to indicate the message type is error.
      */
     MessageType[MessageType["Error"] = 3] = "Error";
-})(MessageType = exports.MessageType || (exports.MessageType = {}));
-//# sourceMappingURL=/service/MessageType.js.map
+})(MessageType || (MessageType = {}));
+//# sourceMappingURL=MessageType.js.map

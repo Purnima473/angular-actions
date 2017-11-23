@@ -1,7 +1,7 @@
-﻿import {ValidationContext} from 'angular-rules-engine/validation/index';
-import {ValidationContextState} from 'angular-rules-engine/validation/index';
-import {IAction} from './IAction';
-import { ActionResult } from './index';
+﻿import { ValidationContext } from 'angular-rules-engine';
+import { ValidationContextState } from 'angular-rules-engine';
+import { IAction } from './IAction';
+import { ActionResult } from './ActionResult';
 
 /**
  * This is the framework Action class that provides the pipeline of pre/post
@@ -16,19 +16,19 @@ import { ActionResult } from './index';
  *		6. preExecuteAction();
  *
  *If the status of action is good, the business logic will be executed using the:
- *		1. processAction(); 
- * 
+ *		1. processAction();
+ *
  * The post-execution functions that can be implemented are:
  *		1. postExecuteAction();
  *		2. validateActionResult();
  *		3. finish();
- */ 
+ */
 export class Action implements IAction {
     allowExecution = true;
-    _validationContext: ValidationContext = new ValidationContext();
+    private _validationContext: ValidationContext = new ValidationContext();
     actionResult: ActionResult = ActionResult.Unknown;
 
-    constructor() {}
+    constructor() { }
 
     get validationContext(): ValidationContext {
         return this._validationContext;
@@ -37,7 +37,7 @@ export class Action implements IAction {
 	/**
 	 * Use this method to execute a concrete action. A concrete action must implement
 	 * the [processAction] and the [validateActionResult] functions to be a valid
-	 * action. 
+	 * action.
 	 */
     execute() {
         console.log('Preparing to execute action.');
@@ -69,7 +69,7 @@ export class Action implements IAction {
         this.finish();
     }
 
-	
+
     private processAction() {
         console.log('Processing action.');
         this.performAction();
@@ -112,7 +112,7 @@ export class Action implements IAction {
 	 * Use this function to implement the execution of the validation and business rules. This
 	 * function is called after [preValidateAction].
 	 */
-    evaluateRules(){
+    evaluateRules() {
         console.log('Evaluating action rules.');
         let context = this.validateAction();
         if (context.isValid) {

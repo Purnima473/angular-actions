@@ -16,7 +16,7 @@
     "label-undefined": true,
     "max-line-length": [
       true,
-      140
+      280
     ],
     "member-access": false,
     "member-ordering": [
@@ -40,7 +40,9 @@
     "no-duplicate-variable": true,
     "no-empty": false,
     "no-eval": true,
-    "no-inferrable-types": [true],
+    "no-inferrable-types": [
+      true
+    ],
     "no-shadowed-variable": true,
     "no-string-literal": false,
     "no-switch-case-fall-through": true,
@@ -89,11 +91,22 @@
       "check-separator",
       "check-type"
     ],
-
-    "directive-selector-name": [true, "camelCase"],
-    "component-selector-name": [true, "kebab-case"],
-    "directive-selector-type": [true, "attribute"],
-    "component-selector-type": [true, "element"],
+    "directive-selector-name": [
+      true,
+      "camelCase"
+    ],
+    "component-selector-name": [
+      true,
+      "kebab-case"
+    ],
+    "directive-selector-type": [
+      true,
+      "attribute"
+    ],
+    "component-selector-type": [
+      true,
+      "element"
+    ],
     "use-input-property-decorator": true,
     "use-output-property-decorator": true,
     "use-host-property-decorator": true,
