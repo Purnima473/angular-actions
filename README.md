@@ -4,7 +4,7 @@ Angular-Actions is a framework to build amazing business logic. It is built usin
 
         Note: v2.0.x requires Angular 5.x packages.
 
-## Another Framework - Really?
+## Another Framework - Really??
 The word ` framework ` is not bad. We all need structure in our lives. There is structure all around us in everything we do. Knowing what to expect or how to interact with things in real life is nothing new to us, we do it everyday without even thinking about it, right? Sometimes, we need a little coaxing and training. You can't just walk into a Starbucks and ask for a cup of coffee...you will soon learn that there is a structure and framework for ordering coffee at Starbucks. You may not like it, but you will soon learn the ways. Don't say ` large ` - you will soon be corrected with ` Venti `. It is just how it works. We work with it and we get what we want.
 
 So, let's not get hung up on the word ` framework ` thinking that it will just hinder your creativity and brilliance. It is only putting a little structure around what you already do - to allow you to focus on the important things while you are creating your masterpiece. Additionally, I encourage you to investigate the ` angular-actions ` framework, however, I encourage you more to use well-known design patterns to implement your business logic. You and your team should have the benefit of a plan, process, and structure for implementing the most important code of the application. If you leave it up to the individual developer, you will get as many variations as there are developers and even more depending on how each deverloper *feels* on any given day. Do you really want to ` hope ` that your business code 
