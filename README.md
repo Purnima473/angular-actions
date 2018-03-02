@@ -5,11 +5,11 @@ Angular-Actions is a framework to build amazing business logic. It is built usin
         Note: v2.0.x requires Angular 5.x packages.
 
 ## Another Framework - Really??
-The word ` framework ` is not bad. We all need structure in our lives. There is structure all around us in everything we do. Knowing what to expect or how to interact with things in real life is nothing new to us, we do it everyday without even thinking about it, right? Sometimes, we need a little coaxing and training. You all know the sandwich shop where you start by indicating the type of sandwich, the bread, toasted or not toasted, cheese, toppings, etc. compared to ordering a ` Big Mac ` at McDonald's. McDonalds doesn't ask you if you want your bun toasted or what kind of cheese you want - I guess you can say they are opininated in how the build a sandwhich. Of course, you can ask for ` no pickles ` and hope it comes out that way.
+The word ` framework ` is not bad. We all need structure in our lives. There is structure all around us in everything we do. Knowing what to expect or how to interact with things in real life is nothing new to us, we do it everyday without even thinking about it, right? Sometimes, we need a little coaxing and training. You all know the sandwich shop where you start by indicating the type of sandwich, the bread, toasted or not toasted, cheese, toppings, etc. compared to ordering a ` Big Mac ` at McDonald's. McDonald's doesn't ask you if you want your bun toasted or what kind of cheese you want - I guess you can say they are opinionated in how the build a sandwich. Of course, you can ask for ` no pickles ` and hope it comes out that way.
 
-You may not like it, but you will soon learn the ways. You do not say ` large ` at Starbucks - you will soon be corrected with ` Venti `. It is just how it works. We work with it and we get what we want.
+You may not like it at first, but you will soon learn the ways. You do not say ` large ` at Starbucks - you will soon be corrected with ` Venti `. It is just how it works. We work with it and we get what we want.
 
-Opinionated frameworks are like these companies. We learn how to work with each one and know what to expect. It isn't any different from using a framework to provide some structure around a given process, like developing software.
+Opinionated frameworks are like these companies. We learn how to work with each one and know what to expect. Many things in real life are not much different from using a framework to provide some structure around a given process, like developing software.
 
 So, let's not get hung up on the word ` framework ` thinking that it will just hinder our creativity and brilliance. It is only putting a little structure around what we already do - to allow us to focus on the important things while we create our next masterpiece. I encourage you to investigate the ` angular-actions ` framework, however, I encourage you more so to use well-known design patterns to implement your business logic. You and your team should have the benefit of a plan, process, and structure for implementing the most important code of the application. If you leave it up to the individual developer, you will get as many variations as there are developers and even more depending on how each deverloper *feels* on any given day. Do you really want to ` hope ` that your business code works - or would you rather have confidence of quantifiable quality of this code.
 
@@ -22,13 +22,45 @@ We want to focus on the solution and the value of the application when it is in 
 * testable
 * focused on the domain
 
-In order to get ` jobs ` done in life, we use tools. We get familiar with them, hopefully become experts with them and then we create amazing things and/or we just get the job done! Regardless, if we are mowing lawns, baking cakes, or building software.
+In order to get ` jobs ` done in life, we use tools. We get familiar with them, hopefully become experts with them and then we create amazing things and/or we just get the job done! Regardless, if we are mowing lawns, baking cakes, writing an email, or building software. What if there was a `tool` that would help you to create amazing business code? What if it was as simple as implementing a well-known ` design pattern ` that has been around for decades; and has real-life examples, works in the real world, etc.
 
-What if there was a `tool` that would help you to create amazing business code. What if it is as simple as implementing a well-known ` design pattern ` that has been around for decades; and has real-life examples, works in the real world, etc.
+Good for us that a lot of smart people before us created the ` wheel ` - we do not need to do that. The design pattern is called ` template method `. We use this pattern all the time in real life. So, let's not be afraid of the scary name and the words ` design pattern `. Right now, you are probably thinking, "Ugh, not a design pattern!". Relax, you got this.
 
-Good for us that a lot of smart people before us created the ` wheel ` - we do not need to do that. The design pattern is called ` template method `. We do it all the time in real life. So, let's not be afraid of the scary name and the words ` design pattern `. Right now, you are probably thinking, "Ugh, not a design pattern!". Relax, you got this.
+A design pattern is just a name given to something that is so repeatable and defined that it deserves a name. Learning design patterns isn't something that you only do by reading a book and you are done. First you learn the concept and then you have some higher-level of understanding and knowledge of how the pattern works. Then over time and using the pattern, you will begin to appreciate its goodness and how you can use the pattern with variations to implement your solutions. You will find that you are already using patterns, you just didn't realize there is an established name for it.
 
-A design pattern is just a name given to something that is so repeatable and explainable that it deserves a name. Learning design patterns isn't something that you only do by reading a book and you are done. First you learn the concept and then you have some higher-level of understanding and knowledge of how the pattern works. Then over time and using the pattern, you will begin to appreciate its goodness and how you can use the pattern with variations to implement your solutions. You will find that you are already using patterns, you just didn't realize there is an established name for it.
+## Template Method - Design Pattern
+It was mentioned ealier that this pattern exists everywhere in real life. It is really an abstraction, for example, we can say:
+
+* make a cake
+* make coffee
+* deposit money
+* shop for groceries
+* make a taco
+
+What do these things have in common? They are things that are performed, have some steps and/or procedures that usually occur in a defined and repeatable sequence. So we can make a cake by calling an ` Execute() ` method that returns a ` Cake `. But what happens internally is:
+
+```javascript
+public Execute() : cake {
+    // 1. get ingredients
+    retrieveIngredients();
+    // 2. mix ingredients
+    mixIngredients();
+    // 3. fill cake pan
+    fillCakePan();
+    // 4. pre-heat oven
+    preHeatOven();
+    // 5. bake cake
+    bakeCake();
+    // 6. decorate cake
+    decoreateCake();
+    // 7. deliver cake
+    return cake;
+}
+```
+
+
+
+Isn't much easier to just say ` Execute() ` and the magic just happens? This is what the template method pattern does for us. We abstract all of the ` methods `, the ` sequence ` of steps by using a single method to execute the ` template `. You define the template for what you need done - it is that simple. Everytime, the cake ` Execute() ` method is called it will use the defined ` template ` to process the request. You get consistent and repeatable results. Is it really possible for ` business logic ` to be implemented using the pattern? 
 
 ## Use the Force, Luke!
 Components with page lifecycle events, methods, and hooks are not a new thing. They have been around for a long time. I remember learning about JSPs in 2000 and using ASP.NET Web Forms in 2001. Each of these frameworks had a defined and specific way, some today would call this an ` opinion `, to implement web pages to display interesting things.
