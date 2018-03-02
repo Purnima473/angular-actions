@@ -4,6 +4,51 @@ Angular-Actions is a framework to build amazing business logic. It is built usin
 
         Note: v2.0.x requires Angular 5.x packages.
 
+## Another Framework - Really?
+The word ` framework ` is not bad. We all need structure in our lives. There is structure all around us in everything we do. Knowing what to expect or how to interact with things in real life is nothing new to us, we do it everyday without even thinking about it, right? Sometimes, we need a little coaxing and training. You can't just walk into a Starbucks and ask for a cup of coffee...you will soon learn that there is a structure and framework for ordering coffee at Starbucks. You may not like it, but you will soon learn the ways. Don't say ` large ` - you will soon be corrected with ` Venti `. It is just how it works. We work with it and we get what we want.
+
+So, let's not get hung up on the word ` framework ` thinking that it will just hinder your creativity and brilliance. It is only putting a little structure around what you already do - to allow you to focus on the important things while you are creating your masterpiece. Additionally, I encourage you to investigate the ` angular-actions ` framework, however, I encourage you more to use well-known design patterns to implement your business logic. You and your team should have the benefit of a plan, process, and structure for implementing the most important code of the application. If you leave it up to the individual developer, you will get as many variations as there are developers and even more depending on how each deverloper *feels* on any given day. Do you really want to ` hope ` that your business code 
+
+### What do you want when you develop your applications? 
+We want to focus on the solution and the value of the application when it is in the hands of our users. We want to know what to expect and to have things familiar to us - so we can just simply write code that is:
+
+* readable (beutiful code)
+* maintainable
+* extensible
+* testable
+* focused on the domain
+
+In order to get ` jobs ` done in life, we use tools. We get familiar with them, hopefully become experts with them and then we create amazing things and/or we just get the job done! Regardless, if we are mowing lawns, baking cakes, or building software.
+
+What if there was a `tool` that would help you to create amazing business code. What if it is as simple as implementing a well-known ` design pattern ` that has been around for decades; and has real-life examples, works in the real world, etc.
+
+Good for us that a lot of smart people before us created the ` wheel ` - we do not need to do that. The design pattern is called ` template method `. We do it all the time in real life. So, let's not be afraid of the scary name and the words ` design pattern `. Right now, you are probably thinking, "Ugh, not a design pattern!". Relax, you got this.
+
+A design pattern is just a name given to something that is so repeatable and explainable that it deserves a name. Learning design patterns isn't something that you only do by reading a book and you are done. First you learn the concept and then you have some higher-level of understanding and knowledge of how the pattern works. Then over time and using the pattern, you will begin to appreciate its goodness and how you can use the pattern with variations to implement your solutions. You will find that you are already using patterns, you just didn't realize there is an established name for it.
+
+## Use the Force, Luke!
+Components with page lifecycle events, methods, and hooks are not a new thing. They have been around for a long time. I remember learning about JSPs in 2000 and using ASP.NET Web Forms in 2001. Each of these frameworks had a defined and specific way, some today would call this an ` opinion `, to implement web pages to display interesting things.
+
+I know that I just said the word ` opinion `. When most people hear this word, it sometimes invokes negative feelings, or maybe we feel I have my own ` opinions ` so I do not have to listen to and/or believe opinions of others. Recently, I have heard technology people talk about some frameworks being opinionated, like [Angular](https://angular.io), and it is a good thing. Some opinions are very acceptable because they offer many benefits. Can you think of some Angular opinions that are beneficial?
+
+* Uses ` Typescript ` to allow for type safety.
+    * Allows us to write higher quality code with less defects.
+* Provides ` structural elements ` to build applications (i.e., modules, components, directives, services).
+    * Provides consistency in how things are used and arranged.
+* Uses ` Dependency Injection ` to provide things to the other things that need it.
+    * Reduces code complexity.
+    * Increases the testability of our code - less dependencies.
+
+There is a name for this pattern. It is called the ` template method ` pattern. It allows you to create an instance of something and call a single method to begin execution of a series/sequence of events and pipeline methods. The sequence is well-defined and always executes consistently. Therefore, many programmers rely on and use this pattern to create a specific flow that is reliable and consistent. 
+
+The ` @buildmotion/actions ` framework is using the same ` template method ` design pattern that all of these component framework architects have been using for decades. It is a simple, and yet powerful pattern. We have the use of this pattern in UI display elements mentioned previously. However, there really has not been too much in terms of frameworks or tools for implementers of business logic. We have to agree that business logic is really the heart of the application. Without business logic we do not have an application - no matter how pretty the UI looks, right? 
+
+When we think about business logic, we are trying to make determinations on what to do. We need to do things like persisting and retrieving data. We might have concerns about the current user - are they authenticated? Is the specified user authorized to do the specified operation? Are there specific business rules that need to be satisfied in order to allow the request to continue? What about data validation? Does the data collected by the application have to meet certain validation rules in order to allow the request to continue? What if you have a team of application developers. Are they allowed to implement code to cover these concerns according to how they feel that day? Is there a way for the entire team to have a structure, framework, or tool that would allow them to do all of these things consistently and ` still ` allow them to be flexible in their designs and coding tasks?
+
+Why yes, there is! The ` @buildmotion/actions  ` framwork provides a consistent and maintainable mechanism for implementing business logic. More importantly, it provides the ability for 100% code coverage when you unit test. It is often a struggle for teams to unit their business logic. One of the main complaints is that it is too difficult. Why? This is due to the inconsistency of implementation and/or an architecture that was not designed to support unit testing from the beginning. If you are building an enterprise application and you have a team of developers, the application deserves a consistent implementation of business logic. This isn't the time for any developers to start singing, "I just gotta be me!". During my 2 decades of building enterprise applications, I have learned (sometimes, the hard way) that you need consistency. For example, I remember applications that had not only a consistent horizontal layered architecture with clear separation of concerns - they also had consistent vertical implementations of the domain. Sometimes more than a dozen vertical domains implemented consistently. As a developer, if you learned and understood the layered architecture, and you also learned and understood a single vertical domain implementation - you could work on any part of the application. It was that consistent. 
+
+One of the consulting companies I worked for allowed me to use and define a framework for implementing business logic using the ` template method ` pattern. One of the other benefits, is that the implementations are consistent between other projects and applications. You have long-term consistency. This has allowed my current team that includes junior developers the opportunity to become productive faster.
+
 ## Why Use Angular-Actions?
 Business logic is the heart of your application. It deserves as much attention if not more than the visible parts of the application. Many times, the architecture or design of the business layer will determine the success of the application. For most business or enterprise applications you will want to strive for the following: 
 
